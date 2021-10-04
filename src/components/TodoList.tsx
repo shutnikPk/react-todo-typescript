@@ -3,9 +3,11 @@ import { ITodoItem } from "./interfaces";
 
 type TodoListProps = {
   todos: ITodoItem[];
+  onToggle: (id: number) => void;
+  onRemove: (id: number) => void;
 };
 
-const TodoList: FC<TodoListProps> = ({ todos }) => {
+const TodoList: FC<TodoListProps> = ({ todos, onToggle, onRemove }) => {
   return (
     <ul>
       {todos.map((todo) => {
@@ -16,9 +18,18 @@ const TodoList: FC<TodoListProps> = ({ todos }) => {
         return (
           <li key={todo.id} className={classes.join(" ")}>
             <label>
-              <input type="checkbox" checked={todo.completed} />
+              <input
+                type="checkbox"
+                checked={todo.completed}
+                onChange={() => onToggle(todo.id)}
+              />
               <span>{todo.title}</span>
-              <i className="material-icons red-text">delete</i>
+              <i
+                className="material-icons red-text"
+                onClick={() => onRemove(todo.id)}
+              >
+                delete
+              </i>
             </label>
           </li>
         );
