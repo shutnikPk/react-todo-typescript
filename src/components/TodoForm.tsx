@@ -13,7 +13,7 @@ const TodoForm: FC<TodoFormProps> = ({ onAdd }) => {
   const ref = useRef<HTMLInputElement>(null);
 
   const keyPressHandler = (event: React.KeyboardEvent) => {
-    if (event.key === "enter") {
+    if (event.key === "Enter") {
       onAdd(ref.current!.value);
       ref.current!.value = "";
     }
