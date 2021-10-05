@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { NavLink } from "react-router-dom";
 
 interface NavbarProps {}
 
@@ -11,10 +12,10 @@ const Navbar: FC<NavbarProps> = () => {
         </a>
         <ul className="right hide-on-med-and-down">
           <li>
-            <a href="/">Список Дел</a>
+            <NavLink to="/">Список Дел</NavLink>
           </li>
           <li>
-            <a href="/">Информация</a>
+            <NavLink to="/about">Информация</NavLink>
           </li>
         </ul>
       </div>
